@@ -1,0 +1,42 @@
+{
+  "name": "andreydubov1000",
+  "version": "1.0.0",
+  "description": "Private repository for @andreydubov1000",
+  "main": "./src/index",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "build": "webpack --progress --config ./webpack.config.js --env development",
+    "start": "webpack serve --progress --config ./webpack.config.js --env development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreyDubov1000/AzatiTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreyDubov1000/AzatiTest.git"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.1.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "html-webpack-plugin": "^5.2.0",
+    "source-map-loader": "^3.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.3",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {}
+}
