@@ -10,6 +10,8 @@ class App {
 
   start() {
     const search = document.querySelector('.search')
+    const sort = document.querySelector('.sort-select')
+    let dataItems = null
 
     const debounce = (fn, ms) => {
       let timout
@@ -24,15 +26,22 @@ class App {
     const onSearch = () => {
       if (search.value.length > 1) {
         this.controller.getList(search.value, (data) => {
+          dataItems = data && data.items ? data.items : null
           console.log(data.items)
-          this.view.drawItems(data)
+          this.view.drawItems(dataItems, sort.value)
         })
       }
-      if (search.value.length === 0) console.log('пусто')
+      if (search.value.length === 0) this.view.drawItems()
     }
-    const onInput = debounce(onSearch, 500)
-    search.addEventListener('input', onInput)
 
+    const onSortSelect = () => {
+      this.view.drawItems(dataItems, sort.value)
+    }
+
+    const onInput = debounce(onSearch, 500)
+
+    search.addEventListener('input', onInput)
+    sort.addEventListener('change', onSortSelect)
   }
 }
 
