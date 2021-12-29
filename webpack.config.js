@@ -1,5 +1,4 @@
 const path = require('path')
-// const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -77,9 +76,9 @@ module.exports = ({ development }) => ({
   },
 
   plugins: [
-    // new CopyPlugin({
-    //   patterns: [{ from: 'src/assets/', to: 'assets/' }],
-    // }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets/', to: 'assets/' }],
+    }),
     //...esLintPlugin(development),
     //new ESLintPlugin({ extensions: ['ts'] }),
     new HtmlWebpackPlugin({

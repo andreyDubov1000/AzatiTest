@@ -20,18 +20,42 @@
                 Имена по возрастанию
               </option>
               <option value="ZtoA">Имена по убыванию</option>
-              <option value="min-max">Дате создания по возрастанию</option>
+              <option value="min-max">Дата создания по возрастанию</option>
               <option value="max-min">Дата создания по убыванию</option>
               <option value="Up-min-max">Дата обновления по возрастанию</option>
               <option value="Up-max-min">Дата обновления по убыванию</option>
             </select>
-
-            <button class="reset-button reset-chosen">Сброс избранных</button>
-            <button class="reset-button reset-all">Сброс фильтров</button>
+           
+            <button class="result-button">Список - Подробно</button>
           </div>
         </section>
 
         <section class="card-container"></section>
+        <section class="info-container hide">
+
+          <template id="ItemInfo">
+            <div class="ItemInfo-header">
+              <h2 class="ItemInfo-title"></h2>
+                <div class="ItemInfo-title-meta">
+                  <img class="card-img" src="${avatarUrl}" alt="toy"/>
+                    <ul class="ItemInfo-title-details">
+                        <li class="ItemInfo-title-author"></li>
+                        <li class="ItemInfo-title-date"></li>
+                    </ul>
+                </div>  
+            </div>
+                <div class="news__description">
+                    <h2 class="news__description-title"></h2>
+                    <h3 class="news__description-source"></h3>
+                    <p class="news__description-content"></p>
+                    <p class="news__read-more">
+                        <a href="#">Read More</a>
+                    </p>
+                </div>
+          
+        </template>
+
+        </section>
 
         <footer class="footer">
           <div class="my-links">

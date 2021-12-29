@@ -1,4 +1,4 @@
-import Items from '../view/items'
+import Items from '../view/items/items'
 
 class Filters extends Items {
   sortItems(cards, pattern) {
