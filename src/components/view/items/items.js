@@ -1,8 +1,10 @@
 import './items.css'
+import Anime from './anime'
 
 class Items {
   constructor() {
     this.container = document.querySelector('.card-container')
+    this.anime = new Anime()
   }
   draw(cards) {
     const fragment = document.createDocumentFragment()
@@ -47,8 +49,11 @@ class Items {
     }
 
     if (this.container) {
+      const oldCardsInfo = this.anime.getCardsInfo(this.container)
       this.container.innerHTML = ''
       this.container.append(fragment)
+      const newCardsInfo = this.anime.getCardsInfo(this.container)
+      this.anime.aminateCards(oldCardsInfo, newCardsInfo, 'url')
     } else {
       throw new Error('DOM element not found. [class = ".card-container"]')
     }

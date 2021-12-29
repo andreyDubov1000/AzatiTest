@@ -22,12 +22,6 @@ class Info {
         </div>
       </div> 
     </div>`
-      const localeTime = 'en-GB'
-
-      function showDate(date, loc) {
-        const options = { month: 'long', year: 'numeric', day: 'numeric' }
-        return date.toLocaleDateString(loc, options)
-      }
 
       data.forEach((item) => {
         const template = document.createElement('template')
@@ -37,9 +31,10 @@ class Info {
         const language = item.language || ''
         const description = item.description || ''
         const forking = item.allow_forking ? 'ДА' : 'НЕТ'
+        const loc = 'en-GB'
+        const date = new Date(`${item.created_at}`).toLocaleDateString(loc)
+        const update = new Date(`${item.updated_at}`).toLocaleDateString(loc)
 
-        const date = showDate(new Date(`${item.created_at}`), localeTime)
-        const update = showDate(new Date(`${item.updated_at}`), localeTime)
         template.innerHTML = `<table class="table">
                   <thead>
                     <tr>

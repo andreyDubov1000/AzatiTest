@@ -2,11 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  width: 90%;
-  min-width: 425px;
-  overflow-x: hidden;
+  min-width: fit-content;
   min-height: 150px;
   height: fit-content;
+  margin: auto 20px;
   padding: 0 10px 0 10px;
   border-radius: 10px;
   border: 1px solid #278d9f;
@@ -67,11 +66,12 @@
   margin-bottom: 5px;
   border-collapse: separate;
 }
+
 .table thead th {
   font-weight: bold;
   text-align: left;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 5px;
   background: #ededed34;
   font-size: 16px;
   color: black;
@@ -79,6 +79,7 @@
 }
 .table tr th:first-child,
 .table tr td:first-child {
+  padding-left: 15px;
   border-left: 1px solid #ddd;
 }
 .table tr th:last-child,
@@ -94,7 +95,7 @@
 .table tbody td {
   text-align: left;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 5px;
   font-size: 14px;
   vertical-align: top;
 }
