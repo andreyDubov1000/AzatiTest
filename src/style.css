@@ -58,11 +58,44 @@ body {
   user-select: none;
 }
 
+.header {
+  display: flex;
+}
+
 h1 {
-  display: block;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
+}
+
+.snow-button {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin: 0 20px;
+  background-image: url('./assets/svg/snow.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.snow-active {
+  animation: snowing 1.5s ease-in-out infinite;
+  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(360deg);
+}
+
+.snow-button:hover {
+  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(120deg);
+}
+
+@keyframes snowing {
+  50% {
+    transform: rotate(-180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 .search {

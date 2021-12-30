@@ -1,18 +1,22 @@
 import AppController from '../loader/controller'
 import AppView from '../view/appView'
 import PreLoader from '../preLoader/preloader'
+import Snow from '../view/snow/snow'
 
 class App {
   constructor() {
     this.controller = new AppController()
     this.view = new AppView()
     this.preLoader = new PreLoader()
+    this.snow = new Snow()
   }
 
   start() {
     const search = document.querySelector('.search')
     const sort = document.querySelector('.sort-select')
     const button = document.querySelector('.result-button')
+    const snowButton = document.querySelector('.snow-button')
+    const snowflakeContainer = document.querySelector('.snowflake-container')
 
     let dataItems = []
 
@@ -39,11 +43,14 @@ class App {
       if (search.value.length === 0) this.view.drawItems()
     }
 
+    const onInput = debounce(onSearch, 1000)
+    search.addEventListener('input', onInput)
+
     const onSortSelect = () => {
       this.view.drawItems(dataItems, sort.value)
     }
 
-    const onInput = debounce(onSearch, 1000)
+    sort.addEventListener('change', onSortSelect)
 
     const onCardClick = (event) => {
       const target = event.target
@@ -57,15 +64,22 @@ class App {
       }
     }
 
+    this.view.items.container.addEventListener('click', onCardClick)
+
     const onButton = () => {
       this.view.items.container.classList.toggle('hide')
       this.view.info.container.classList.toggle('hide')
     }
 
-    search.addEventListener('input', onInput)
-    sort.addEventListener('change', onSortSelect)
+    const onSnowButton = () => {
+      snowButton.classList.toggle('snow-active')
+      this.snow.moveSnowflakes()
+    }
+
+    snowflakeContainer.append(this.snow.generateSnowflakes())
+    snowButton.addEventListener('click', onSnowButton)
+
     button.addEventListener('click', onButton)
-    this.view.items.container.addEventListener('click', onCardClick)
   }
 }
 

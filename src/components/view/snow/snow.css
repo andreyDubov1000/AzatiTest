@@ -1,0 +1,21 @@
+.snowflake-container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+.snowflake {
+  position: fixed;
+  background-color: transparent;
+  background-image: url('../../../assets/svg/snow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  user-select: none;
+  z-index: 100;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  transition: opacity 0.3s;
+}
