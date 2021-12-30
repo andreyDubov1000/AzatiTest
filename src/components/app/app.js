@@ -1,10 +1,12 @@
 import AppController from '../loader/controller'
 import AppView from '../view/appView'
+import PreLoader from '../preLoader/preloader'
 
 class App {
   constructor() {
     this.controller = new AppController()
     this.view = new AppView()
+    this.preLoader = new PreLoader()
   }
 
   start() {
@@ -27,10 +29,12 @@ class App {
 
     const onSearch = () => {
       if (search.value.length > 1) {
-        this.controller.getList(search.value, (data) => {
+        const drawItems = (data) => {
           dataItems = data && data.items ? data.items : []
           this.view.drawItems(dataItems, sort.value)
-        })
+        }
+
+        this.controller.getList(search.value, drawItems, this.preLoader)
       }
       if (search.value.length === 0) this.view.drawItems()
     }
@@ -39,7 +43,7 @@ class App {
       this.view.drawItems(dataItems, sort.value)
     }
 
-    const onInput = debounce(onSearch, 600)
+    const onInput = debounce(onSearch, 1000)
 
     const onCardClick = (event) => {
       const target = event.target
@@ -47,10 +51,9 @@ class App {
 
       if (card && card.dataset.url) {
         const url = card.dataset.url
-        console.log(url)
-        this.controller.getInfo(url, (data) => {
-          this.view.drawInfo(data)
-        })
+        const drawInfo = (data) => this.view.drawInfo(data)
+
+        this.controller.getInfo(url, drawInfo, this.preLoader)
       }
     }
 

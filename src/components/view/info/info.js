@@ -10,6 +10,7 @@ class Info {
       const ItemInfo = document.createElement('div')
       ItemInfo.classList.add('info')
 
+      const length = data.length == '30' ? `более ${data.length}` : data.length
       const avatarUrl = data[0].owner['avatar_url']
       const login = data[0].owner.login
       ItemInfo.innerHTML = ` <div class="ItemInfo-header">
@@ -18,7 +19,7 @@ class Info {
         <img  src="${avatarUrl}" alt="avatar"/>
         <div>
           <p>Логин:<span>${login}</span></p>
-          <p>Количество репозиториев:<span>${data.length}</span></p>
+          <p>Количество репозиториев:<span>${length}</span></p>
         </div>
       </div> 
     </div>`

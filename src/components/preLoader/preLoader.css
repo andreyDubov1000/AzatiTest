@@ -1,0 +1,63 @@
+.preLoader {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 0 auto;
+  top: -60px;
+  width: 150px;
+  height: 50px;
+}
+
+.progress {
+  opacity: 1;
+  visibility: visible;
+}
+
+.block {
+  position: relative;
+  margin: 0 10px 10px 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: transparent;
+  background-image: url('../../assets/svg/snow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.block:nth-child(6n + 1) {
+  animation: wave 2s ease 0s infinite;
+}
+.block:nth-child(6n + 2) {
+  animation: wave 2s ease 0.2s infinite;
+}
+.block:nth-child(6n + 3) {
+  animation: wave 2s ease 0.4s infinite;
+}
+.block:nth-child(6n + 4) {
+  animation: wave 2s ease 0.6s infinite;
+}
+.block:nth-child(6n + 5) {
+  animation: wave 2s ease 0.8s infinite;
+}
+.block:nth-child(6n + 6) {
+  animation: wave 2s ease 1s infinite;
+  margin-right: 0;
+}
+
+@keyframes wave {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 30px;
+    opacity: 0.2;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}

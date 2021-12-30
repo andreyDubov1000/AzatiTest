@@ -55,6 +55,7 @@ body {
   border-radius: 10px;
   background-color: rgba(31, 112, 127, 0.3);
   height: fit-content;
+  user-select: none;
 }
 
 h1 {

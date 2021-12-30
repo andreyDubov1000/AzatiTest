@@ -38,7 +38,7 @@ class Anime {
           { transform: 'none' },
         ],
         {
-          duration: 300,
+          duration: 400,
           easing: 'ease-out',
         }
       )

@@ -1,12 +1,14 @@
 class Loader {
+  
   getResp(
     endpoint,
     baseLink,
     callback = () => {
       console.error('No callback for GET response')
-    }
+    },
+    preLoader
   ) {
-    this.load('GET', endpoint, callback, baseLink)
+    this.load('GET', endpoint, callback, baseLink, preLoader)
   }
 
   errorHandler(res) {
@@ -30,7 +32,8 @@ class Loader {
     return url
   }
 
-  load(method, endpoint, callback, baseLink) {
+  load(method, endpoint, callback, baseLink, preLoader) {
+    if(preLoader.on()) preLoader.on()
     fetch(this.makeUrl(baseLink, endpoint), { method })
       .then(this.errorHandler)
       .then(async (res) => {
@@ -54,7 +57,7 @@ class Loader {
 
         const chunksAll = new Uint8Array(receivedLength)
         let position = 0
-        
+
         for (let chunk of chunks) {
           chunksAll.set(chunk, position)
           position += chunk.length
@@ -66,7 +69,10 @@ class Loader {
 
         //return res.json()
       })
-      .then((data) => callback(data))
+      .then((data) => {
+        if(preLoader.off()) preLoader.off()
+        return callback(data)
+      })
       .catch((err) => console.error(err))
   }
 }

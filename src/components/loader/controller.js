@@ -1,12 +1,12 @@
 import Loader from './loader'
 
 class AppController extends Loader {
-  getList(endpoint, callback) {
-    super.getResp(endpoint, 'https://api.github.com/search/repositories?q=', callback)
+  getList(endpoint, callback, preLoader) {
+    super.getResp(endpoint, 'https://api.github.com/search/repositories?q=', callback, preLoader)
   }
 
-  getInfo(url, callback) {
-    super.getResp('', url, callback)
+  getInfo(url, callback, preLoader) {
+    super.getResp('', url, callback, preLoader)
   }
 }
 export default AppController
