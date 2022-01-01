@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <title>GIT search</title>
   <script defer src="index.js"></script></head>
   <body>
+    <div class="snowflake-container"></div>
     <div class="page" >
       <div class="blur">
        
         <section class="main">
           <div class="panel">
-            <h1>Поиск по GIThub</h1>
+            <header class="header">
+                <div class="audio-button christmas"></div>
+              <h1>Поиск по GIThub</h1>
+              <div class="snow-button christmas"></div>
+            </header> 
+     
             <input type="search" class="search" autocomplete="off" autofocus placeholder="начните поиск"/>
 
             <select class="sort-select">
@@ -25,7 +32,28 @@
               <option value="Up-min-max">Дата обновления по возрастанию</option>
               <option value="Up-max-min">Дата обновления по убыванию</option>
             </select>
-           
+
+            <div class="preLoader done">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+              </div>
+
             <button class="result-button">Список - Подробно</button>
           </div>
         </section>
@@ -45,5 +73,5 @@
           
           </div>
         </footer>
-       </body>
+      </body>
 </html>

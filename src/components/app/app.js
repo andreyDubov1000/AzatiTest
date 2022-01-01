@@ -16,7 +16,9 @@ class App {
     const sort = document.querySelector('.sort-select')
     const button = document.querySelector('.result-button')
     const snowButton = document.querySelector('.snow-button')
+    const audioButton = document.querySelector('.audio-button')
     const snowflakeContainer = document.querySelector('.snowflake-container')
+    const audio = new Audio('./assets/wav/Cutscene_03_Jinglebells.mp3')
 
     let dataItems = []
 
@@ -71,6 +73,8 @@ class App {
       this.view.info.container.classList.toggle('hide')
     }
 
+    button.addEventListener('click', onButton)
+
     const onSnowButton = () => {
       snowButton.classList.toggle('snow-active')
       this.snow.moveSnowflakes()
@@ -79,7 +83,22 @@ class App {
     snowflakeContainer.append(this.snow.generateSnowflakes())
     snowButton.addEventListener('click', onSnowButton)
 
-    button.addEventListener('click', onButton)
+    const onAudiButton = () => {
+      let isPlay = false
+      return () => {
+        isPlay = !isPlay
+        audioButton.classList.toggle('audio-active')
+        audio.loop = true
+        audio.volume = 0.4
+        if (isPlay) {
+          audio.play()
+        } else {
+          audio.pause()
+        }
+      }
+    }
+
+    audioButton.addEventListener('click', onAudiButton())
   }
 }
 

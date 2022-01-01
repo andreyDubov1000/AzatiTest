@@ -68,7 +68,9 @@ h1 {
   margin: 0 0 0.5em 0;
 }
 
-.snow-button {
+/* christmas snow and audi */
+
+.christmas {
   display: inline-block;
   width: 35px;
   height: 35px;
@@ -78,6 +80,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center center;
   cursor: pointer;
+  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(120deg);
 }
 
 .snow-active {
@@ -86,7 +89,21 @@ h1 {
 }
 
 .snow-button:hover {
-  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(120deg);
+  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(360deg);
+}
+
+.audio-button {
+  background-image: url('./assets/3.png');
+  margin-left: 10px;
+}
+
+.audio-button:hover {
+  filter: none;
+}
+
+.audio-active {
+  animation: snowing 1.5s ease-in-out infinite;
+  filter: none;
 }
 
 @keyframes snowing {
@@ -97,6 +114,8 @@ h1 {
     transform: rotate(-360deg);
   }
 }
+
+/* functional */
 
 .search {
   appearance: none;

@@ -9,12 +9,12 @@ class Snow {
     this.enableSnowing = false
   }
 
+  getPosition = (offset, size) => Math.round(Math.random() * (size + 2 * offset) - offset)
+
   generateSnowflakes() {
     const fragmentContainer = document.createDocumentFragment()
     const snowflake = document.createElement('div')
     const browserWidth = window.innerWidth
-
-    const getPosition = (offset, size) => Math.round(Math.random() * (size + 2 * offset) - offset)
 
     snowflake.classList.add('snowflake')
     for (let i = 0; i < this.numberOfSnowflakes; i++) {
@@ -22,7 +22,7 @@ class Snow {
 
       fragmentContainer.append(snowflakeClone)
 
-      const initialXPos = getPosition(50, browserWidth)
+      const initialXPos = this.getPosition(50, browserWidth)
       const initialYPos = -50
       const speed = 10 + Math.random() * 50
       const snowflakeObject = new Snowflake(snowflakeClone, speed, initialXPos, initialYPos)
@@ -53,8 +53,8 @@ class Snow {
 
       if (this.resetPosition) {
         this.snowflakes.forEach((snowflake) => {
-          snowflake.xPos = getPosition(50, browserWidth)
-          snowflake.yPos = getPosition(50, windowHeight)
+          snowflake.xPos = this.getPosition(50, browserWidth)
+          snowflake.yPos = this.getPosition(50, windowHeight)
         })
 
         this.resetPosition = false
